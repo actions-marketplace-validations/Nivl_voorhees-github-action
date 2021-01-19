@@ -17,7 +17,17 @@ Path to a file containing the output of `go list -m -u -json all` command. Defau
 ### With defaults
 
 ```
-uses: actions/voorhees@v1
+voorhees:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-go@v2
+
+    - name: Generate go.list
+      run: go list -json -m all > go.list
+
+    - name: Run Voorhees
+      uses: Nivl/voorhees-github-action@v1
 ```
 
 ### With options
