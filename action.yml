@@ -1,0 +1,18 @@
+name: "Voorhees for GitHub Actions"
+author: "melvin <Nivl> Laplanche"
+description: "Run Voorhees as part of your GitHub Actions workflow."
+inputs:
+  goListFile:
+    description: 'Path to a file containing the output of "go list -m -u -json all" command.'
+    required: false
+    default: go.list
+  version:
+    description: "Version of Voorhees to use in form of v1.2 or v1.2.3 or `latest` to use the latest version"
+    required: false
+    default: latest
+runs:
+  using: "node12"
+  main: "dist/index.js"
+branding:
+  icon: "shield"
+  color: "gray-dark"
