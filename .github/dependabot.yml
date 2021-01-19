@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      day: "friday"
+      time: "16:00"
+      timezone: "America/Los_Angeles"
+    assignees:
+      - "Nivl"

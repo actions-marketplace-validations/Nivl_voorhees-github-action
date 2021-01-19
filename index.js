@@ -2,9 +2,11 @@ const os = require("os");
 const fs = require("fs");
 const path = require("path");
 const { spawn } = require("child_process");
+
 const core = require("@actions/core");
 const tc = require("@actions/tool-cache");
 const github = require("@actions/github");
+
 const semver = require("semver");
 const { request } = require("@octokit/request");
 
@@ -56,7 +58,7 @@ async function run() {
       core.setFailed(`no version found for ${versionWanted}`);
       return;
     }
-    core.info(`found ${versionToDownload}`);
+    core.info(`Using ${versionToDownload}`);
 
     // Download asset and extract it
     const assetURL = getDownloadURL(versionToDownload);
@@ -74,9 +76,9 @@ async function run() {
     const binPath = path.join(extractedDir, `voorhees`);
     const expectedBinPath = path.join(process.cwd(), `voorhees`);
     fs.renameSync(binPath, expectedBinPath);
-    core.info(`Installed voorhees at into ${expectedBinPath}`);
 
     // Run voorhees
+    core.info(`Run voorhees`);
     const goListStream = fs.createReadStream(goListFile);
     const proc = spawn("./voorhees", { stdio: ["pipe", 1, 2, "ipc"] });
     goListStream.pipe(proc.stdin);
@@ -85,6 +87,7 @@ async function run() {
       if (code) {
         core.setFailed("");
       }
+      core.info(`Done`);
     });
   } catch (error) {
     core.setFailed(error.message);

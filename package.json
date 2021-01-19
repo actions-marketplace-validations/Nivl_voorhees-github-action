@@ -22,8 +22,10 @@
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
     "@actions/tool-cache": "^1.6.1",
-    "@octokit/core": "^3.2.4",
-    "github-api": "^3.3.0",
+    "@octokit/request": "^5.4.12",
     "semver": "^7.3.4"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.27.0"
   }
 }
