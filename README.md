@@ -12,12 +12,6 @@ Version of Voorhees to use in form of v1.2 or v1.2.3 or `latest` to use the late
 
 Path to a file containing the output of `go list -m -u -json all` command. Default is `go.list`.
 
-## Outputs
-
-### `time`
-
-The time we greeted you.
-
 ## Example usage
 
 ### With defaults
