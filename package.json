@@ -22,7 +22,7 @@
     "@actions/core": "^1.5.0",
     "@actions/github": "^5.0.1",
     "@actions/tool-cache": "^1.7.2",
-    "@octokit/request": "^5.6.1",
+    "@octokit/request": "^5.6.3",
     "semver": "^7.3.5"
   },
   "devDependencies": {
